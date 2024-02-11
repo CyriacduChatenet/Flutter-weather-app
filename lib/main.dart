@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weatherapp/repositories/weather_city_repository.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,10 +34,13 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
+  final WeatherCityRepository weatherCityRepository = WeatherCityRepository();
+
   void _incrementCounter() {
     setState(() {
       _counter++;
     });
+    weatherCityRepository.findWeatherCityByName('Paris');
   }
 
   @override
